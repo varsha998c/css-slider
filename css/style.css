@@ -15,6 +15,10 @@
 ol, ul {
 	list-style: none;
 }
+a {
+	display: inline-block;
+	cursor: pointer;
+}
 body {
 	font-family: "GT-Eesti", Arial, Helvetica, sans-serif;
 	font-size: 17px;
@@ -24,7 +28,9 @@ body {
 	font-weight: 500;
 }
 .wrapper {
-    width: 90%;
+	width: 90%;
+    margin: 0 auto;
+    max-width: 1421px;
 }
 header { 
     height: 80px;
@@ -55,41 +61,428 @@ header .container .menu ul {
     display: flex;
 }
 header .container .menu ul li { 
-    margin-right: 15px;
+	padding: 30px 40px;
+	background: #fff;
 }
 header .container .menu ul li a { 
 	color: #6d6d66;
 }
-header .container .menu ul li a:hover {
+header .container .menu ul li:hover {
+	background-color: #5ccb8e;
 }
 header .container .right { 
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 header .container .right .call { 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 25px 40px;
+}
+header .container .right .call:hover {
+	background-color: #5ccb8e;
+}
+header .container .right .call .phone {
+	background-color: #5ccb8e;
+	border-radius: 50%;
+}
+header .container .right .call .phone i {
+	color: white;
+	padding: 7px;
+}
+header .container .right .call span {
 	color: #6d6d66;
 }
-header .container .right .call a {
-	font-size: 20px;
-	color: #6d6d66;
+#spotlight {
+    background: url("../images/slider-image1.jpg") rgba(0,0,0, 0.4);
+    background-position: center;
+    padding-bottom: 14%;
+    background-blend-mode: multiply;
 }
-header .container .right .call a i { 
-	color: #6d6d66;
+#spotlight .content {
+	width: 41%;
+	padding-top: 20%;
 }
-#spotlight { 
-    background-image: url("../images/slider-image1.jpg");
-	width: 100%;
+#spotlight .content h1 {
+	color: #fff;
+	font-size: 46px;
+	margin-bottom: 8%;
 }
-#spotlight .content { 
-
+#spotlight .content p { 
+	color: #EBEBEB;
+	margin-bottom: 4%;
 }
-#spotlight .content h1 { 
-
+#spotlight .content a {
+	margin: 0 auto;
 }
-#spotlight .content h4 { 
-
+#spotlight .content a:hover {
+	background-color: #fff;
 }
 #spotlight .content .submit { 
+	display: inline-block;
+    font-size: 18px;
+    border-radius: 40px;
+    border: 1px solid #fff;
+    color: #9c9c9c;
+	padding: 15px 28px;
+}
+#main {
+	padding: 60px;
+}
+#main section.wrapper .content {
+	display: flex;
+	justify-content: space-between;
+}
+#main section.wrapper .content div.one {
+	display: block;
+	width: 30%;
+	padding: 6% 3%;
+	border: 1px solid #dddcdc;
+}
+#main section.wrapper .content div.one span {
+	background-color: #3F51B5;
+	padding: 5%;
+	border-radius: 50%;
+	color: #fff;
+	font-size: 30px;
+}
+#main section.wrapper .content div.one h3 {
+	color: #3a3939;
+	font-size: 20px;
+	margin-top: 13%;
+}
+#main section.wrapper .content div.one p {
+	color: #868686;
+	margin-top: 4%;
+}
+#practice {
+	padding: 3% 0;
+}
+#practice .wrapper {	
+}
+#practice .wrapper div.container {
+	display: flex;
+	justify-content: space-between;
+}
+#practice .wrapper div.practical_left {
+	width: 45%;
+}
+#practice .wrapper div.practical_left h2 {
+ font-size: 34px;
+ color: #353535;
+ font-weight: bold;
+ margin-bottom: 6%;
+}
+#practice .wrapper div.practical_left ul {
+	display: block;
+	margin: 0 auto;
+}
+#practice .wrapper div.practical_left ul li {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 6%;
+}
+#practice .wrapper div.practical_left ul li div.left {
+	background-color: #5ccb8e;
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+}
+#practice .wrapper div.practical_left ul li div.right {
+	margin-left: 3%;
+}
+#practice .wrapper div.practical_left ul li div.right h4 {
+	color:#454545;
+	font-weight: bold;
+}
+#practice .wrapper div.practical_left ul li div.right p {
+	color: #b1aeae;
+    line-height: 1.5;
+    margin-top: 1%;
+}
+.fa-users {
+	color: #fff;
+	padding: 10px 6px;
+	font-size: 20px;
+}
+.fa-certificate {
+	color: #fff;
+	padding: 10px 10px;
+	font-size: 20px;
+}
+.fa-chart-bar {
+	color: #fff;
+	padding: 10px 10px;
+	font-size: 20px;
+}
+#practice .wrapper div.practical_right {
+	width: 45%;
+	margin-right: 0;
+	display: grid;
+	place-items: center;
+}
+#practice .wrapper div.practical_right div.container {
+	overflow: hidden;
+	width: 450px;
+	box-sizing: border-box;
+	height: 450px;
+	padding: 65px 10px 30px;
+	background-color: #252020;
+	border-radius: 50%;
+	display: block;
+}
+#practice .wrapper div.practical_right div.container h3 {
+	color: #fff;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 30px;
+}
+#practice .wrapper div.practical_right div.container form {
+	margin: 0 auto;
+	width: 100%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+#practice .wrapper div.practical_right div.container form input[type=text] {
+	padding: 13px 10px;
+	border-bottom: .5px solid #605E5E;
+	width: 80%;
+	margin-right: 0;
+	font-size: 15px;
+	color: #6d6d6d;
+}
+#practice .wrapper div.practical_right div.container form input[type=email] {
+	padding: 13px 10px;
+	border-bottom: .5px solid #605E5E;
+	width: 80%;
+	margin-right: 0;
+	font-size: 15px;
+	color: #6d6d6d;
+}
+#practice .wrapper div.practical_right div.container form input[type=password] {
+	padding: 13px 10px;
+	border-bottom: .5px solid #605E5E;
+	width: 80%;
+	margin-right: 0;
+	font-size: 15px;
+	color: #6d6d6d;
+	margin-bottom: 8%;
+}
+#practice .wrapper div.practical_right div.container form a {
+	margin: 0 auto;
+	align-items: center;
+}
+#practice .wrapper div.practical_right div.container form a.submit {
+	font-size: 15px;
+    border-radius: 40px;
+    background-color: #fff;
+    color: #000;
+	padding: 15px 28px;
+}
+#teachers {
+	padding: 2% 0;
+}
+#teachers .wrapper {
 
+}
+#teachers .wrapper h2 {
+	font-size: 30px;
+	color: #353535;
+	text-align: center;
+	font-weight: bold;
+}
+#teachers .wrapper span.meet {
+	color: #858585;
+	display: flex;
+	justify-content: center;
+}
+#teachers .wrapper ul {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 5%;
+}
+#teachers .wrapper ul li {
+	width: 24%;
+	margin-right: 4%;
+}
+#teachers .wrapper ul li div.images {
+	border-bottom: .2px  #6d6d6d;
+}
+#teachers .wrapper ul li div.images img {
+	width: 100%;
+	display: block;
+}
+#teachers .wrapper ul li div.images h3 {
+	padding: 25px 0 0 25px;
+    color: #302f2f;
+	font-size: 20px;
+}
+#teachers .wrapper ul li div.images span {
+	padding-left: 25px;
+	font-size: 15px;
+	color: #545454;
+}
+#teachers .wrapper ul li div.icon {
+	margin-top: 4%;
+	padding-left: 25px;
+	border-top: .3px solid #dfdcdc;
+	padding-top: 4%;
+}
+#teachers .wrapper ul li div.icon a {
+	margin-right: 10%;
+}
+.fa-facebook-square {
+	color: #000;
+	border-radius: 50%;
+	background-color: #fff;
+	padding: 20px;
+}
+.fa-facebook-square:hover {
+	background-color: #5ccb8e;
+	color: #fff;
+}
+.fa-twitter {
+	color: #000;
+	color: #000;
+	border-radius: 50%;
+	background-color: #fff;
+	padding: 20px;
+}
+.fa-twitter:hover {
+	background-color: #5ccb8e;
+	color: #fff;
+}
+.fa-instagram {
+	color: #000;
+	color: #000;
+	border-radius: 50%;
+	background-color: #fff;
+	padding: 20px;
+}
+.fa-instagram:hover {
+	background-color: #5ccb8e;
+	color: #fff;
+}
+.fa-envelope {
+	color: #000;
+	color: #000;
+	border-radius: 50%;
+	background-color: #fff;
+	padding: 20px;
+}
+.fa-envelope:hover {
+	background-color: #5ccb8e;
+	color: #fff;
+}
+.fa-linkedin-in {
+	color: #000;
+	color: #000;
+	border-radius: 50%;
+	background-color: #fff;
+	padding: 20px;
+}
+.fa-linkedin-in:hover {
+	background-color: #5ccb8e;
+	color: #fff;
+}
+.fa-google {
+	color: #000;
+	color: #000;
+	border-radius: 50%;
+	background-color: #fff;
+	padding: 20px;
+}
+.fa-google:hover {
+	background-color: #5ccb8e;
+	color: #fff;
+}
+.fa-behance {
+	color: #000;
+	color: #000;
+	border-radius: 50%;
+	background-color: #fff;
+	padding: 20px;
+}
+.fa-behance:hover {
+	background-color: #5ccb8e;
+	color: #fff;
+}
+#popular {
+	padding: 7% 0;
+}
+#popular .wrapper {
+
+}
+#popular .wrapper h2 {
+	font-size: 30px;
+	color: #353535;
+	text-align: center;
+	font-weight: bold;
+}
+#popular .wrapper span {
+	color: #858585;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 5%;
+}
+#popular .wrapper div.container {
+	display: flex;
+	justify-content: space-between;
+}
+#popular .wrapper div.container div.one {
+	width: 30%;
+	position: ea;
+	position: relative;
+}
+#popular .wrapper div.container div.one ul {
+	display: block;
+}
+#popular .wrapper div.container div.one ul li {
+
+}
+#popular .wrapper div.container div.one ul li div.image {
+	width: 80%;
+}
+#popular .wrapper div.container div.one ul li div.image img {
+	width: 100%;
+}
+#popular .wrapper div.container div.one ul li div.time {
+	position: absolute;
+	bottom: 72%;
+	display: flex;
+	justify-content: space-between;
+	margin-left: 2%;
+}
+#popular .wrapper div.container div.one ul li div.time .calender {
+	display: flex;
+}
+#popular .wrapper div.container div.one ul li div.time .calender p {
+	color: #fff;
+}
+#popular .wrapper div.container div.one ul li div.time .clock {
+	display: flex;
+	margin-left: 2%;
+}
+#popular .wrapper div.container div.one ul li div.time .clock p {
+	color: #fff;
+}
+.fa-calendar-alt {
+	color: #fff6f6;
+}
+.fa-clock {
+	color: #fff;
+}
+#popular .wrapper div.container div.one ul li h4 {
+	color: #454545;
+	font-weight: bold;
+	margin: 5% 0 0 3%;
+	font-size: 20px;
+}
+#popular .wrapper div.container div.one ul li p.one {
+	color: #A1A1A1;
+	margin: 4% 0 0 3%;
+	width: 80%;
+	padding-bottom: 3%;
+	border-bottom: .3px solid #dfdcdc;
 }
