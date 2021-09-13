@@ -7,9 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+	<link rel="stylesheet" type="text/css" href="css/slick-theme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/slick.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 </head>
 
 <body>
@@ -35,6 +40,30 @@
                 </a>
             </div>
         </div>
+        <!-- ( hamburger ) -->
+        <a class="open-btn">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav class="slider-container">.
+            <a class="close-btn">
+                <i class="fas fa-times"></i>
+            </a>
+            <ul class="slider">
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Our Teachers">Our Teachers</a></li>
+                <li><a href="#Courses">Courses</a></li>
+                <li><a href="#Review">Review</a></li>
+                <li><a href="#Contact">Contact</a></li>
+                <li><a href="#" class="call">
+                    <div class="phone">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <span>+65 2244 1100</span>
+                </a></li>
+            </ul>
+        </nav>
+        <!-- ( hamburger ) -->
     </header>
     <!-- ( header ) -->
     <section id="spotlight">
@@ -202,18 +231,19 @@
             </ul>
         </section>
     </section>
-    <!-- ( #popular ) -->
+    <!-- ( #teachers) -->
     <section id="popular">
         <section class="wrapper">
             <h2>Popular Courses</h2>
             <span>Upgrade your skills with newst courses</span>
-            <div class="container">
+            <div class="multiple-items">
                 <div class="one">
                     <ul>
                         <li>
                             <div class="image">
                                 <img src="images/courses-image3.jpg" alt="img" />
                             </div>
+                            <div class="overlay"></div>
                             <div class="time">
                                 <div class="calender">
                                     <i class="far fa-calendar-alt"></i>
@@ -233,7 +263,7 @@
                             </p>
                         </li>
                         <li class="bottom">
-                            <div class="image">
+                            <div class="image_container">
                                 <img src="images/author-image3.jpg" alt="image" />
                             </div>
                             <h6>Catherine</h6>
@@ -268,11 +298,11 @@
                             </p>
                         </li>
                         <li class="bottom">
-                            <div class="image">
+                            <div class="image_container">
                                 <img src="images/author-image1.jpg" alt="image" />
                             </div>
                             <h6>Mark Wilson</h6>
-                            <div class="btn">
+                            <div class="btn1">
                                 <a href="#" class="submit">USD 45</a>
                             </div>
                         </li>
@@ -303,7 +333,7 @@
                             </p>
                         </li>
                         <li class="bottom">
-                            <div class="image">
+                            <div class="image_container">
                                 <img src="images/author-image2.jpg" alt="image" />
                             </div>
                             <h6>Jessica</h6>
@@ -313,49 +343,97 @@
                         </li>
                     </ul>
                 </div>
-                <!-- <div class="one">
+                <div class="one">
                     <ul>
                         <li>
-                            <div class="img">
-                                <img src="images/courses-image3.jpg" alt="img" />
+                            <div class="image">
+                                <img src="images/courses-image1.jpg" alt="img" />
                             </div>
                             <div class="time">
                                 <div class="calender">
                                     <i class="far fa-calendar-alt"></i>
-                                    <p>15/8/2018</p>
+                                    <p>12/7/2018</p>
                                 </div>
                                 <div class="clock">
                                     <i class="far fa-clock"></i>
-                                    <p>6 Hours</p>
+                                    <p>7 Hours</p>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <h4>Marketing Communication</h4>
-                            <p>
+                            <h4>Social Media Management</h4>
+                            <p class="one">
                                 Lorem ipsum, dolor sit amet consectetur
                                 adipisicing elit.
                             </p>
                         </li>
                         <li class="bottom">
-                            <div class="image">
-                                <img src="images/author-image3.jpg" alt="image" />
+                            <div class="image_container">
+                                <img src="images/author-image1.jpg" alt="image" />
                             </div>
-                            <h6>Catherine</h6>
-                            <div class="btn">
-                                <a href="#" class="submit">Free</a>
+                            <h6>Mark Wilson</h6>
+                            <div class="btn1">
+                                <a href="#" class="submit">USD 25</a>
                             </div>
                         </li>
                     </ul>
                 </div>
-            </div> -->
+                <div class="one">
+                    <ul>
+                        <li>
+                            <div class="image">
+                                <img src="images/courses-image2.jpg" alt="img" />
+                            </div>
+                            <div class="time">
+                                <div class="calender">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <p>20/8/2018</p>
+                                </div>
+                                <div class="clock">
+                                    <i class="far fa-clock"></i>
+                                    <p>4.5 Hours</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h4>Graphics & Web Design</h4>
+                            <p class="one">
+                                Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit.
+                            </p>
+                        </li>
+                        <li class="bottom">
+                            <div class="image_container">
+                                <img src="images/author-image1.jpg" alt="image" />
+                            </div>
+                            <h6>Mark Wilson</h6>
+                            <div class="btn1">
+                                <a href="#" class="submit">USD 45</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="icon">
+                <ul>    
+                    <li class="second">   
+                        <a href="#" class="left-arrow"><i class="fas fa-angle-left"></i></a>
+                    </li>
+                    <li class="first">
+                        <a href="#" class="right-arrow" ><i class="fas fa-angle-right"></i></a>  
+                    </li>
+                </ul>
+           </div>
+
         </section>
     </section>
-    <section class="review">
+    <!-- ( #popular ) -->
+    <section id="review">
         <section class="wrapper">
             <h4>Student Reviews</h4>
             <span>from around the world</span>
-            <div class="container">
+            <div class="variable-width">
                 <div class="item">
                     <ul>
                         <li>
@@ -363,11 +441,11 @@
                                 <img src="images/tst-image1.jpg" alt="img1" />
                             </div>
                             <div class="right">
-                                <h5>jackson</h5>
+                                <h5>Jackson</h5>
                                 <span>Shopify Developer</span>
                             </div>
                         </li>
-                        <li>
+                        <li class="below">
                             <p>
                                 You really do help young creative minds to
                                 get quality education and professional job
@@ -395,11 +473,11 @@
                                 <span>Marketing Manager</span>
                             </div>
                         </li>
-                        <li>
+                        <li class="below">
                             <p>
                                 Trying something new is exciting!Thanks for
                                 the amazing kaw course and the great teacher
-                                who was able to make it interesting
+                                who was able to make it interesting.
                             </p>
                             <div class="star">
                                 <span><i class="fas fa-star"></i></span>
@@ -420,7 +498,85 @@
                                 <span>Art Director</span>
                             </div>
                         </li>
+                        <li class="below">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Nisi ut ab accusamus eaque
+                                repellat magnam
+                            </p>
+                            <div class="star">
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <ul>
                         <li>
+                            <div class="left">
+                                <img src="images/tst-image4.jpg" alt="img1" />
+                            </div>
+                            <div class="right">
+                                <h5>Andrio</h5>
+                                <span>Web Developer</span>
+                            </div>
+                        </li>
+                        <li class="below">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Nisi ut ab accusamus eaque
+                                repellat magnam
+                            </p>
+                            <div class="star">
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <ul>
+                        <li>
+                            <div class="left">
+                                <img src="images/tst-image4.jpg" alt="img1" />
+                            </div>
+                            <div class="right">
+                                <h5>Andrio</h5>
+                                <span>Web Developer</span>
+                            </div>
+                        </li>
+                        <li class="below">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Nisi ut ab accusamus eaque
+                                repellat magnam
+                            </p>
+                            <div class="star">
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <ul>
+                        <li>
+                            <div class="left">
+                                <img src="images/tst-image4.jpg" alt="img1" />
+                            </div>
+                            <div class="right">
+                                <h5>Andrio</h5>
+                                <span>Web Developer</span>
+                            </div>
+                        </li>
+                        <li class="below">
                             <p>
                                 Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Nisi ut ab accusamus eaque
@@ -441,67 +597,73 @@
     <!-- ( #review ) -->
     <section id="contact">
         <section class="wrapper">
-            <div class="left">
-                <h4>Contact Us</h4>
-                <p>we love conversations.let us talk!</p>
-                <form action="" method="get">
-                    <input type="text" placeholder="Enter full name" />
-                    <input type="email" placeholder="Enter email address" />
-                    <div class="text">
-                        <textarea id="address" cols="10" rows="10" name="Address"
-                            placeholder="Tell us about your message"></textarea>
-                        <a href="" class="submit">Send Message</a>
+            <div class="container2">
+                <div class="left">
+                    <h4>Contact Us</h4>
+                    <p>we love conversations.let us talk!</p>
+                    <form action="" method="get">
+                        <input type="text" placeholder="Enter full name" />
+                        <input type="email" placeholder="Enter email address" />
+                        <div class="text">
+                            <textarea id="address" cols="10" rows="10" placeholder="Tell us about your message"></textarea>
+                            <a href="#" class="submit">Send Message</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="right">
+                    <div class="img_container">
+                        <img src="images/contact-image.jpg" alt="img" />
                     </div>
-                </form>
+                </div>
             </div>
-            <div class="right">
-                <img src="images/contact-image.jpg" alt="img" />
-            </div>
+            
         </section>
     </section>
     <!-- ( #contact ) -->
     <footer>
-        <div class="content">
-            <div class="head">
-                <h4>Headquarter</h4>
-                <p>
-                    1800 dapibus a tortor pretium. Integer nisl dui ,ABC
-                    12000
-                </p>
-                <ul>
-                    <li><i class="fab fa-facebook-square"></i></li>
-                    <li><i class="fab fa-twitter"></i></li>
-                    <li><i class="fab fa-instagram"></i></li>
-                </ul>
-                <h5>
-                    Copyright &copy; 2019 Company Name <br />Design:
-                    TemplateMo
-                </h5>
-                <!-- <h6>Design: TemplateMo</h6> -->
-            </div>
-            <div class="middle">
-                <div class="info">
-                    <h4>Contact Info</h4>
-                    <p>+65 2244 1100, +66 1800 1100</p>
-                    <p>hello@youremail.co</p>
-                </div>
-                <div class="qick">
-                    <h4>Quick Links</h4>
+        <section class="wrapper">
+            <div class="content">
+                <div class="about">
+                    <h4>Headquarter</h4>
+                    <p>
+                        1800 dapibus a tortor pretium. Integer nisl dui ,ABC
+                        12000
+                    </p>
                     <ul>
-                        <li>Career</li>
-                        <li>Investor</li>
-                        <li>Terms & Conditions</li>
+                        <li class="one"><i class="fab fa-facebook-square"></i></li>
+                        <li class="one"><i class="fab fa-twitter"></i></li>
+                        <li class="one"><i class="fab fa-instagram"></i></li>
                     </ul>
-                    <h6>Refund Policy</h6>
+                    <h5>
+                        Copyright &copy; 2019 Company Name <br><br>Design:
+                        TemplateMo
+                    </h5>
+                    <!-- <h6>Design: TemplateMo</h6> -->
+                </div>
+                <div class="contact">
+                    <div class="info">
+                        <h4>Contact Info</h4>
+                        <span>+65 2244 1100, +66 1800 1100</span>
+                        <p>hello@youremail.co</p>
+                    </div>
+                    <div class="quick">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li>Career</li>
+                            <li>Investor</li>
+                            <li>Terms & Conditions</li>
+                        </ul>
+                        <h6>Refund Policy</h6>
+                    </div>
+                </div>
+                <div class="email">
+                    <h4>Newsletter Signup</h4>
+                    <input type="email" placeholder="Enter your email" />
+                    <a href="#" class="button">Send me</a>
+                    <h6>*please note-we do not spam your email.</h6>
                 </div>
             </div>
-            <div class="new">
-                <h4>Newsletter Signup</h4>
-                <input type="text" placeholder="Enter your email" />
-                <a href="#" class="button">Send me</a>
-                <h6>*please note-we do not spam your email.</h6>
-            </div>
-        </div>
+        </section>
     </footer>
     <!-- ( footer ) -->
 </body>

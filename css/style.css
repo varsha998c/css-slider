@@ -19,6 +19,48 @@ a {
 	display: inline-block;
 	cursor: pointer;
 }
+.slick-prev:before {
+	display: none;
+}
+.slick-next:before {
+	display: none;
+} 
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 81px !important;
+    line-height: 1 !important;
+    opacity: .75 !important;
+    color: #000 !important;
+    font-weight: bolder;
+}
+.slick-dots {
+    position: absolute;
+    bottom: -25px;
+    display: block;
+    width: 88% !important;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: black;
+}
+.slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 50px !important;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '•';
+    text-align: center;
+}
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: black;
+}
 body {
 	font-family: "GT-Eesti", Arial, Helvetica, sans-serif;
 	font-size: 17px;
@@ -32,12 +74,16 @@ body {
     margin: 0 auto;
     max-width: 1421px;
 }
-header { 
+header {
     height: 80px;
     background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+	/* border-top: 5px solid #5ccb8e; */
 }
 header .container {
 	margin: 0 auto;
@@ -55,20 +101,20 @@ header .container h1 a {
 	font-weight: bold;
 }
 header .container .menu { 
-
 }
 header .container .menu ul { 
     display: flex;
 }
-header .container .menu ul li { 
-	padding: 30px 40px;
+header .container .menu ul li {
 	background: #fff;
 }
-header .container .menu ul li a { 
+header .container .menu ul li a {
 	color: #6d6d66;
+	padding: 30px 40px;
 }
 header .container .menu ul li:hover {
 	background-color: #5ccb8e;
+	cursor: pointer;
 }
 header .container .right { 
 }
@@ -89,8 +135,96 @@ header .container .right .call .phone i {
 	color: white;
 	padding: 7px;
 }
+header .container .right .call:hover .phone i {
+	color: #5ccb8e;
+	background-color: #fff;
+	border-radius: 50%;
+}
 header .container .right .call span {
 	color: #6d6d66;
+}
+.open-btn { 
+	font-size: 20px;
+    color: #000;
+	margin-right: 30px;
+	cursor: pointer;
+	display: none;
+}
+.close-btn .fa-times{
+	color: #000;
+}
+.open .fas { 
+
+}
+.slider-container { 
+	background: #fff;
+    padding: 29px 0px;
+    position: fixed;
+    top: 0px;
+	right: -600px;
+    width: 100%;
+    height: 100vh;
+	display: none;
+}
+.slider-container.active{
+	right: 0;
+}
+.slider-container .slider { 
+	text-align: center;
+}
+.slider-container .slider li { 
+	font-size: 16px;
+    margin-bottom: 20px;
+	transition: all .3 ease-in-out;
+	font-weight: bold;
+}
+.slider-container .slider li:last-child a {
+	display: flex;
+}
+.slider-container .slider li:last-child a.call {
+	margin: 0 auto;
+	align-items: center;
+}
+.slider-container .slider li:last-child a.call span {
+	margin-left: 11%;
+}
+.slider-container .slider li:last-child a.call i {
+	background-color: #fff;
+	border-radius: 50%;
+	padding: 20%;
+	color: #605E5E;
+}
+.slider-container .slider li:last-child a.call i:hover {
+	color: #5ccb8e;
+}
+.slider-container .slider li:hover {
+	background-color: #5ccb8e;
+	cursor: pointer;
+}
+.slider-container .slider li a { 
+	width: 166px;
+	border-radius: 10%;
+	opacity: 0.75;
+	padding: 4% 0;
+	color: #3a3939;
+}
+.slider-container .slider li a:hover {
+	color: #fff;
+}
+.slider-container .slider .down { 
+
+}
+.slider-container .slider .down a { 
+
+}
+.slider-container .slider .down a .fas { 
+
+}
+.slider-container .slider .down .dropdown { 
+
+}
+.slider-container .slider .down .dropdown a { 
+
 }
 #spotlight {
     background: url("../images/slider-image1.jpg") rgba(0,0,0, 0.4);
@@ -99,30 +233,32 @@ header .container .right .call span {
     background-blend-mode: multiply;
 }
 #spotlight .content {
-	width: 41%;
 	padding-top: 20%;
 }
 #spotlight .content h1 {
 	color: #fff;
 	font-size: 46px;
-	margin-bottom: 8%;
+	margin-bottom: 3%;
+	width: 40%;
 }
 #spotlight .content p { 
 	color: #EBEBEB;
 	margin-bottom: 4%;
+	width: 40%;
 }
 #spotlight .content a {
 	margin: 0 auto;
 }
 #spotlight .content a:hover {
 	background-color: #fff;
+	color: #868686;
 }
 #spotlight .content .submit { 
 	display: inline-block;
     font-size: 18px;
     border-radius: 40px;
     border: 1px solid #fff;
-    color: #9c9c9c;
+    color: #fff;
 	padding: 15px 28px;
 }
 #main {
@@ -174,7 +310,6 @@ header .container .right .call span {
 }
 #practice .wrapper div.practical_left ul {
 	display: block;
-	margin: 0 auto;
 }
 #practice .wrapper div.practical_left ul li {
 	display: flex;
@@ -273,6 +408,9 @@ header .container .right .call span {
 	margin: 0 auto;
 	align-items: center;
 }
+#practice .wrapper div.practical_right div.container form a.submit:hover {
+	background: #3F51B5;
+}
 #practice .wrapper div.practical_right div.container form a.submit {
 	font-size: 15px;
     border-radius: 40px;
@@ -325,9 +463,9 @@ header .container .right .call span {
 }
 #teachers .wrapper ul li div.icon {
 	margin-top: 4%;
-	padding-left: 25px;
+	padding-left: 16px;
 	border-top: .3px solid #dfdcdc;
-	padding-top: 4%;
+	padding-top: 8%;
 }
 #teachers .wrapper ul li div.icon a {
 	margin-right: 10%;
@@ -335,8 +473,7 @@ header .container .right .call span {
 .fa-facebook-square {
 	color: #000;
 	border-radius: 50%;
-	background-color: #fff;
-	padding: 20px;
+	padding: 10px;
 }
 .fa-facebook-square:hover {
 	background-color: #5ccb8e;
@@ -344,10 +481,8 @@ header .container .right .call span {
 }
 .fa-twitter {
 	color: #000;
-	color: #000;
 	border-radius: 50%;
-	background-color: #fff;
-	padding: 20px;
+	padding: 10px;
 }
 .fa-twitter:hover {
 	background-color: #5ccb8e;
@@ -355,10 +490,8 @@ header .container .right .call span {
 }
 .fa-instagram {
 	color: #000;
-	color: #000;
 	border-radius: 50%;
-	background-color: #fff;
-	padding: 20px;
+	padding: 10px;
 }
 .fa-instagram:hover {
 	background-color: #5ccb8e;
@@ -366,10 +499,8 @@ header .container .right .call span {
 }
 .fa-envelope {
 	color: #000;
-	color: #000;
 	border-radius: 50%;
-	background-color: #fff;
-	padding: 20px;
+	padding: 10px;
 }
 .fa-envelope:hover {
 	background-color: #5ccb8e;
@@ -377,10 +508,8 @@ header .container .right .call span {
 }
 .fa-linkedin-in {
 	color: #000;
-	color: #000;
 	border-radius: 50%;
-	background-color: #fff;
-	padding: 20px;
+	padding: 10px;
 }
 .fa-linkedin-in:hover {
 	background-color: #5ccb8e;
@@ -388,10 +517,8 @@ header .container .right .call span {
 }
 .fa-google {
 	color: #000;
-	color: #000;
 	border-radius: 50%;
-	background-color: #fff;
-	padding: 20px;
+	padding: 10px;
 }
 .fa-google:hover {
 	background-color: #5ccb8e;
@@ -399,10 +526,8 @@ header .container .right .call span {
 }
 .fa-behance {
 	color: #000;
-	color: #000;
 	border-radius: 50%;
-	background-color: #fff;
-	padding: 20px;
+	padding: 10px;
 }
 .fa-behance:hover {
 	background-color: #5ccb8e;
@@ -419,6 +544,7 @@ header .container .right .call span {
 	color: #353535;
 	text-align: center;
 	font-weight: bold;
+	margin-bottom: 1%;
 }
 #popular .wrapper span {
 	color: #858585;
@@ -426,63 +552,970 @@ header .container .right .call span {
 	justify-content: center;
 	margin-bottom: 5%;
 }
-#popular .wrapper div.container {
+#popular .wrapper div.multiple-items {
 	display: flex;
 	justify-content: space-between;
 }
-#popular .wrapper div.container div.one {
+#popular .wrapper div.multiple-items div.one {
 	width: 30%;
-	position: ea;
 	position: relative;
 }
-#popular .wrapper div.container div.one ul {
+#popular .wrapper div.multiple-items div.one ul {
 	display: block;
 }
-#popular .wrapper div.container div.one ul li {
-
+#popular .wrapper div.multiple-items div.one ul li {
+	position: relative;
 }
-#popular .wrapper div.container div.one ul li div.image {
-	width: 80%;
-}
-#popular .wrapper div.container div.one ul li div.image img {
+/* #popular .wrapper div.multiple-items div.one ul li div.overlay{
 	width: 100%;
-}
-#popular .wrapper div.container div.one ul li div.time {
+	height: 50px;
 	position: absolute;
-	bottom: 72%;
+	bottom: 0;
+	background: linear-gradient(#fff,#000);
+} */
+#popular .wrapper div.multiple-items div.one ul li div.image {
+	width: 83%;
+	position: relative;
+}
+#popular .wrapper div.multiple-items div.one ul li div.image img {
+	width: 100%;
+	display: block;
+}
+#popular .wrapper div.multiple-items div.one ul li div.time {
+	position: absolute;
+	top: 82%;
 	display: flex;
 	justify-content: space-between;
-	margin-left: 2%;
+	width: 41%;
+	left: 13px;
 }
-#popular .wrapper div.container div.one ul li div.time .calender {
+#popular .wrapper div.multiple-items div.one ul li div.time .calender {
 	display: flex;
 }
-#popular .wrapper div.container div.one ul li div.time .calender p {
+#popular .wrapper div.multiple-items div.one ul li div.time .calender p {
 	color: #fff;
 }
-#popular .wrapper div.container div.one ul li div.time .clock {
+#popular .wrapper div.multiple-items div.one ul li div.time .clock {
 	display: flex;
-	margin-left: 2%;
 }
-#popular .wrapper div.container div.one ul li div.time .clock p {
-	color: #fff;
+#popular .wrapper div.multiple-items div.one ul li div.time .clock p {
+	color: #fff;	
 }
 .fa-calendar-alt {
 	color: #fff6f6;
 }
 .fa-clock {
 	color: #fff;
+
 }
-#popular .wrapper div.container div.one ul li h4 {
+#popular .wrapper div.multiple-items div.one ul li h4 {
 	color: #454545;
 	font-weight: bold;
 	margin: 5% 0 0 3%;
 	font-size: 20px;
 }
-#popular .wrapper div.container div.one ul li p.one {
+#popular .wrapper div.multiple-items div.one ul li p.one {
 	color: #A1A1A1;
 	margin: 4% 0 0 3%;
-	width: 80%;
+	width: 86%;
 	padding-bottom: 3%;
 	border-bottom: .3px solid #dfdcdc;
+}
+#popular .wrapper div.multiple-items div.one ul li.bottom {
+	display: flex;
+	justify-content: flex-start;
+	margin-top: 4%;
+}
+#popular .wrapper div.multiple-items div.one ul li.bottom .image_container {
+	width: 10%;
+}
+#popular .wrapper div.multiple-items div.one ul li.bottom .image_container img {
+	width: 100%;
+	display: block;
+	border-radius: 50%;
+}
+#popular .wrapper div.multiple-items div.one ul li.bottom h6 {
+	margin: 4% 0 0 3%;
+    font-size: 15px;
+    font-weight: bold;
+}
+#popular .wrapper div.multiple-items div.one ul li.bottom div.btn {
+	margin-left: 43%;
+}
+#popular .wrapper div.multiple-items div.one ul li.bottom div.btn a {
+	background-color: #3F51B5;
+	border-radius: 10%;
+}
+#popular .wrapper div.multiple-items div.one ul li.bottom div.btn a.submit {
+	padding: 10px;
+	color: #fff;
+}
+#popular .wrapper div.multiple-items div.one ul li.bottom div.btn1 {
+	margin-left: 34%;
+}
+#popular .wrapper div.multiple-items div.one ul li.bottom div.btn1 a {
+	background-color: #5CCB8E;
+	border-radius: 10%;
+}
+#popular .wrapper div.multiple-items div.one ul li.bottom div.btn1 a.submit {
+	padding: 10px;
+	color: #fff;
+}
+#popular .wrapper div.icon {
+	position: relative;
+	top: 50px;
+}
+#popular .wrapper  div.icon ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#popular .wrapper div.icon ul li {
+	transition-duration: .8s;
+    cursor: pointer;
+}
+#popular .wrapper div.icon ul li.first {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 3px;
+	background-color: #D6D6D6;
+	padding: 6px 17px;
+}
+#popular .wrapper div.icon ul li.first:hover {
+	background-color: #8eddb1;
+}
+#popular .wrapper div.icon ul li.first a {
+
+}
+#popular .wrapper div.icon ul li.first a.right-arrow {
+
+}
+#popular .wrapper div.icon ul li.second {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 3px;
+	background-color: #D6D6D6;
+	padding: 6px 17px;
+	margin-right: 1%;
+}
+#popular .wrapper div.icon ul li.second:hover {
+	background-color: #8eddb1;
+}
+#popular .wrapper div.icon ul li.second  a {
+}
+.fa-angle-left {
+	color: #fff;
+}
+.fa-angle-right {
+	color: #fff;
+}
+#review {
+	padding: 7% 0;
+}
+#review .wrapper {
+
+}
+#review .wrapper h4 {
+	font-size: 30px;
+	color: #353535;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 1%;
+}
+#review .wrapper span {
+	color: #858585;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 5%;
+}
+#review .wrapper div.variable-width {
+	display: flex;
+	justify-content: space-between;
+	padding: 5%; 
+
+}
+#review .wrapper div.variable-width div.item {
+	width: 36%;
+}
+#review .wrapper div.variable-width div.item ul {
+
+}
+#review .wrapper div.variable-width div.item ul li {
+	display: flex;
+	align-items: center;
+	justify-content: baseline;
+	margin-bottom: 3%;
+}
+#review .wrapper div.variable-width div.item ul li div.left {
+	width: 14%;
+	border-radius: 50%;
+}
+#review .wrapper div.variable-width div.item ul li div.left img {
+	width: 100%;
+	display: block;
+	border-radius: 50%;
+}
+#review .wrapper div.variable-width div.item ul li div.right {
+	margin-left: 7%;
+}
+#review .wrapper div.variable-width div.item ul li div.right h5 {
+	font-size: 24px;
+	font-weight: bold;
+	color: #333333;
+	margin-bottom: 2%;
+}
+#review .wrapper div.variable-width div.item ul li div.right span {
+
+}
+#review .wrapper div.variable-width div.item ul li.below {
+	margin-top: 10%;
+	display: block;
+}
+#review .wrapper div.variable-width div.item ul li.below  p {
+	width: 80%;
+	color: #6d6d6d;
+	line-height: 1.7rem;
+}
+#review .wrapper div.variable-width div.item ul li.below  div.star {
+	display: flex;
+	margin-top: 4%;
+}
+#review .wrapper div.variable-width div.item ul li.below  div.star span {
+	color: #3F51B5;
+}
+.fa-star {
+	
+}
+#contact {
+	background-color: #3f51b5;
+}
+#contact .wrapper {
+	
+}
+#contact .wrapper div.container2 {
+	display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+#contact .wrapper div.left {
+	width: 50%;
+	padding: 5%;
+}
+#contact .wrapper div.container2 div.left h4 {
+	font-size: 28px;
+	font-weight: bold;
+	color: #fff;
+	margin-bottom: 3%;
+}
+#contact .wrapper div.container2 div.left p {
+	color: #fff;
+	margin-bottom: 3%;
+}
+#contact .wrapper div.container2 div.left form {
+	margin: 0 auto;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+#contact .wrapper div.container2 div.left form input[type=text] {
+	width: 95%;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 16px 20px;
+}
+#contact .wrapper div.container2 div.left form input[type=email] {
+	width: 95%;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 16px 20px;
+	margin-top: 4%;
+}
+#contact .wrapper div.container2 div.left form div.text {
+	margin-top: 4%;
+}
+#contact .wrapper div.container2 div.left form div.text textarea {
+	width: 95%;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 19px 20px;
+}
+#contact .wrapper div.container2 div.right {
+	width: 50%;
+}
+#contact .wrapper div.container2 div.right div.img_container {
+	width: 98%;
+    padding: 10%;
+}
+#contact .wrapper div.container2 div.right img {
+	width: 100%;
+	display: block;
+}
+#contact .wrapper div.container2 div.left form div.text a {
+	margin: 0 auto;
+    align-items: center;
+	margin-top: 3%;
+}
+#contact .wrapper div.container2 div.left form div.text a.submit {
+	font-size: 15px;
+    border-radius: 40px;
+    background-color: #fff;
+    color: #707070;
+    padding: 15px 28px;
+}
+#contact .wrapper div.container2 div.left form div.text a.submit:hover {
+	background-color: #3F51B5;
+	border: 1px solid #fff;
+	transition: .6s;
+	color: #fff;
+}
+footer {
+ background-color: #252020;
+}
+footer div.content {
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+}
+footer div.content div.about {
+	padding: 9% 1%;
+	width: 33%;
+}
+footer div.content div.about h4 {
+	color: #fff;
+	font-size: 23px;
+	margin-bottom: 4%;
+	font-weight: bold;
+}
+footer div.content div.about p {
+	width: 53%;
+	color: #6d6d6d;
+	font-size: 15px;
+	line-height: 1.5rem;
+}
+footer div.content div.about ul {
+	display: flex;
+	margin-top: 16%;
+}
+footer div.content div.about ul li.one {
+	width: 20%;
+}
+footer div.content div.about ul li.one .fa-facebook-square {
+	color: #5CCB8E;
+	margin-right: 2%;
+}
+footer div.content div.about ul li.one .fa-twitter {
+	color: #5CCB8E;
+	margin-right: 2%;
+}
+footer div.content div.about ul li.one .fa-instagram {
+	color: #5CCB8E;
+	margin-right: 2%;
+}
+footer div.content div.about ul li.one .fa-facebook-square:hover {
+	color: #fff;
+}
+footer div.content div.about ul li.one .fa-twitter:hover {
+	color: #fff;
+}
+footer div.content div.about ul li.one .fa-instagram:hover {
+	color: #fff;
+}
+footer div.content div.about h5 {
+	color: #6d6d6d;
+	margin-top: 6%;
+}
+footer div.content div.contact {
+	padding: 9% 1%;
+	display: block;
+	width: 33%;
+}
+footer div.content div.contact div.info {
+
+}
+footer div.content div.contact div.info h4 {
+	color: #fff;
+	font-size: 23px;
+	margin-bottom: 4%;
+	font-weight: bold;
+}
+footer div.content div.contact div.info span {
+	width: 53%;
+	color: #6d6d6d;
+	font-size: 15px;
+	line-height: 1.5rem;
+	margin-bottom: 5%;
+}
+footer div.content div.contact div.info p {
+	width: 53%;
+	color: #6d6d6d;
+	font-size: 15px;
+	line-height: 1.5rem;
+	margin-bottom: 5%;
+}
+footer div.content div.contact div.quick {
+	margin-top: 17%;
+}
+footer div.content div.contact div.quick h4 {
+	color: #fff;
+	font-weight: bold;
+	font-size: 23px;
+}
+footer div.content div.contact div.quick ul {
+	display: flex;
+	justify-content: baseline;
+	align-items: center;
+	margin-top: 6%;
+}
+footer div.content div.contact div.quick ul li {
+	margin-right: 2%;
+	color: #797878;
+}
+footer div.content div.contact div.quick ul li:last-child {
+	margin-right: 0;
+}
+footer div.content div.contact div.quick h6 {
+	color: #797878;
+	margin-top: 4%;
+	font-size: 15px;
+}
+footer div.content div.email {
+	padding: 9% 1%;
+	display: block;
+	width: 33%;
+}
+footer div.content div.email h4 {
+	color: #fff;
+	font-weight: bold;
+	font-size: 22px;
+	margin-bottom: 4%;
+}
+footer div.content div.email input[type=email] {
+	padding: 13px 10px;
+	border-bottom: .2px solid #605E5E;
+	width: 98%;
+	margin-right: 0;
+	font-size: 15px;
+	color: #6d6d6d;
+	margin-bottom: 14%;
+}
+footer div.content div.email a {
+	margin: 0 auto;
+	align-items: center;
+}
+footer div.content div.email a.button {
+	display: inline-block;
+	font-size: 18px;
+	border-radius: 40px;
+	border: 1px solid #fff;
+	color: #fff;
+	padding: 15px 56px;
+}
+footer div.content div.email a.button:hover {
+	background-color: #5CCB8E;
+	border:none;
+}
+footer div.content div.email h6{
+	color: #6d6d6d;
+	margin-top: 8%;
+}
+@media all and (max-width: 1400px) {
+	header .container .menu ul li a {
+		padding: 30px 17px;
+	}
+
+	#practice .wrapper div.practical_left {
+		width: 50%;
+	}
+	#practice .wrapper div.practical_left h2 {
+		font-size: 30px;
+	}
+	#teachers .wrapper ul li div.icon a {
+		margin-right: 0;
+	}
+	#popular .wrapper div.multiple-items div.one ul li div.time {
+		width: 48%;
+	}
+	.slick-dots {
+		width: 80%;
+	}
+	footer div.content div.about p {
+		width: 64%;
+	}
+}
+@media all and (max-width: 1280px) {
+	header .container .menu ul li a {
+		padding: 31px 6px;
+		font-size: 15px;
+	}
+	#spotlight .content h1 {
+		font-size: 44px;
+		width: 50%;
+	}
+	#spotlight .content p {
+		width: 65%;
+	}
+	#main section.wrapper .content div.one p {
+		font-size: 14px;
+	}
+	#practice .wrapper div.practical_left {
+		width: 47%;
+	}
+	#practice .wrapper div.practical_left h2 {
+		font-size: 22px;
+	}
+	#practice .wrapper div.practical_right {
+		width: 49%;
+	}
+	#practice .wrapper div.practical_right div.container {
+		width: 420px;
+		height: 420px;
+	}
+	#teachers {
+		padding: 8% 0;
+	}
+	#popular .wrapper div.multiple-items div.one ul li div.time {
+		width: 59%;
+	}
+	#popular .wrapper div.multiple-items div.one ul li div.time .calender {
+		font-size: 15px;
+		color: #363535;
+	}
+	#popular .wrapper div.multiple-items div.one ul li div.time .clock {
+		font-size: 15px;
+		color: #363535;
+	}
+	#popular .wrapper div.multiple-items div.one ul li p.one {
+		width: 85%;
+		font-size: 14px;
+	}
+	#popular .wrapper div.multiple-items div.one ul li.bottom div.btn {
+		margin-left: 32%;
+	}
+	#popular .wrapper div.multiple-items div.one ul li.bottom div.btn1 {
+		margin-left: 16%;
+	}
+	#review {
+		padding: 11% 0;
+	}
+	#review .wrapper div.variable-width div.item ul li div.right span {
+		font-size: 15px;
+	}
+	#review .wrapper div.variable-width div.item ul li.below p {
+		width: 92%;
+		font-size: 16px;
+	}
+	#contact .wrapper div.left {
+		padding: 3%;
+	}
+	div.container2 div.left form input[type=text],[type=email] {
+		width: 99% !important;
+		padding: 13px 20px !important;
+	}
+	#contact .wrapper div.left {
+		padding: 6%;
+	}
+	#contact .wrapper div.container2 div.left form div.text textarea {
+		width: 99% !important;
+		padding: 6px 20px !important;
+	}
+	#contact .wrapper div.container2 div.right div.img_container {
+		width: 100%;
+		padding: 10% 0 0 0;
+	}
+	footer div.content div.about p {
+		width: 85%;
+	}
+}
+@media all and (max-width: 980px) {
+	header .container .menu ul li a {
+		padding: 31px 6px;
+	}
+	header .container .right .call {
+		padding: 25px 8px;
+	}
+	header .container .right .call span {
+		font-size: 14px;
+	}
+	#spotlight {
+		padding-bottom: 31%;
+	}
+	#spotlight .content h1 {
+		width: 82%;
+	}
+	#spotlight .content p {
+		width: 96%;
+	}
+	#main section.wrapper .content div.one {
+		padding: 12% 3%;
+		border: .1px solid #eeebeb;
+	}
+	#main section.wrapper .content div.one p {
+		line-height: 1.5rem;
+	}
+	#practice .wrapper div.container {
+		display: block;
+	}
+	#practice .wrapper div.practical_left {
+		width: 92%;
+	}
+	#practice .wrapper div.practical_left h2 {
+		font-size: 25px;
+	}
+	#practice .wrapper div.practical_left ul {
+		width: 85%;
+		padding-left: 4%;
+	}
+	#practice .wrapper div.practical_left ul li div.right p {
+		font-size: 15px;
+	}
+	#practice .wrapper div.practical_right {
+		margin-top: 10%;
+	}
+	#practice .wrapper div.practical_right div.container form input[type=email] {
+		width: 80% !important;
+		padding: 13px 10px !important;
+	}
+	#teachers {
+		padding: 15% 0 10% 0;
+	}
+	#teachers .wrapper ul {
+		flex-wrap: wrap;
+	}
+	#teachers .wrapper ul li {
+		width: 41%;
+		margin-right: 5%;
+	}
+	#teachers .wrapper ul li div.icon {
+		padding-bottom: 23%;
+	}
+	#popular .wrapper div.multiple-items div.one ul li div.image {
+		width: 100%;
+	}
+	div.one ul li.bottom .image_container {
+		width: 8%;
+	}
+	#popular .wrapper div.multiple-items div.one ul li.bottom .image_container {
+		width: 8%;
+	}
+	#popular .wrapper div.multiple-items div.one ul li.bottom div.btn {
+		margin-left: 61%;
+	}
+	#popular .wrapper div.multiple-items div.one ul li.bottom div.btn1 {
+		margin-left: 53%;
+	}
+	#review .wrapper div.variable-width div.item ul li div.left {
+		width: 10%;
+	}
+	#review .wrapper div.variable-width div.item ul li div.right {
+		margin-left: 2%;
+	}
+	#review .wrapper div.variable-width div.item ul li.below {
+		margin-top: 5%;
+	}
+	#contact .wrapper div.container2 {
+		display: block;
+	}
+	#contact .wrapper div.left {
+		padding-top: 6%;
+		width: 95%;
+	}
+	#contact .wrapper div.container2 div.left form div.text textarea {
+		border-radius: 0;
+	}
+	#contact .wrapper div.container2 div.left form div.text a.submit {
+		font-size: 15px;
+		padding: 3% 41%;
+	}
+	#contact .wrapper div.container2 div.right {
+		width: 89%;
+	}
+	#contact .wrapper div.container2 div.right div.img_container {
+		width: 100%;
+		padding: 5% 0 4% 6%;
+	}
+	footer div.content {
+		flex-wrap: wrap;
+	}
+	footer div.content div.about {
+		width: 49%;
+	}
+	footer div.content div.contact {
+		width: 44%;
+	}
+	footer div.content div.contact div.quick ul li {
+		font-size: 14px;
+	}
+	footer div.content div.email {
+		width: 94%;
+	}
+	footer div.content div.email input[type=email] {
+		margin-bottom: 8%;
+	}
+	footer div.content div.email a.button {
+		padding: 2% 22%;
+	}
+}
+@media all and (max-width: 768px) {
+	header .container h1 a {
+		font-size: 14px;
+	}
+	header .container .menu ul li a {
+		padding: 32px 4px;
+		font-size: 13px;
+	}
+	header .container .right .call {
+		padding: 25px 0px;
+		width: 130px;
+	}
+	header .container .right .call .phone i {
+		padding: 5px;
+	}
+	#spotlight {
+		background-size: cover;
+	}
+	#spotlight .content h1 {
+		font-size: 34px;
+	}
+	#spotlight .content p {
+		font-size: 14px;
+	}
+	#spotlight .content .submit {
+		padding: 11px 16px;
+	}
+	#practice .wrapper div.practical_left {
+		width: 100%;
+	}
+	#practice .wrapper div.practical_left h2 {
+		font-size: 22px;
+	}
+	#practice .wrapper div.practical_right {
+		width: 80%;
+	}
+	#teachers .wrapper ul li:last-child {
+		margin-right: 0;
+	}
+	.fa-twitter,.fa-envelope ,.fa-linkedin-in ,.fa-google ,.fa-behance,.fa-facebook-square,.fa-instagram {
+		font-size: 13px;
+	}
+	#contact .wrapper div.container2 div.left form div.text a.submit {
+		font-size: 14px;
+		padding: 3% 41%;
+	}
+	#contact .wrapper div.left {
+		width: 100%;
+		padding: 0;
+	}
+	#contact .wrapper div.container2 div.right {
+		width: 100%;
+	}
+	#contact .wrapper div.container2 div.right div.img_container {
+		padding: 4% 0 0 0;
+	}
+	
+	footer div.content div.about h4 {
+		font-size: 19px;
+	}
+	footer div.content div.contact div.info h4 {
+		font-size: 19px;
+	}
+	footer div.content div.contact div.quick h4 {
+		font-size: 19px;
+	}
+	footer div.content div.email h4 {
+		font-size: 19px;
+	}
+	footer div.content div.email a.button {
+		font-size: 14px;
+	}
+}
+@media all and (max-width: 640px) {
+	header .container .menu {
+		display: none;
+	}
+	header .container .right {
+		display: none;
+	}
+	.slider-container{
+		display: block;
+	}
+	.open-btn{
+		display: block;
+	}
+	.slider-container .slider li {
+		margin-bottom: 0px;
+	}
+	#spotlight {
+		background-size: cover;
+	}
+	#spotlight .content h1 {
+		font-size: 29px;
+		padding-top: 25%;
+		width: 100%;
+	}
+	#main section.wrapper .content {
+		display: block;
+	}
+	#main section.wrapper .content div.one {
+		width: 100%;
+		border: none;
+		padding: 0 0 20% 0;
+	}
+	#main section.wrapper .content div.one span {
+		padding: 3%;
+		font-size: 22px;
+	}
+	#main section.wrapper .content div.one h3 {
+		margin-top: 8%;
+	}
+	#practice .wrapper div.practical_left ul li div.right p {
+		font-size: 14px;
+	}
+	#practice .wrapper div.practical_right {
+		width: 100%;
+	}
+	#teachers .wrapper ul li {
+		width: 100%;
+	}
+	#teachers .wrapper ul li div.images h3 {
+		font-weight: bold;
+	}
+	#popular .wrapper div.multiple-items div.one ul li div.image {
+		border: .5px solid #a5a5a5 !important;
+	}
+	#popular .wrapper div.multiple-items div.one ul li p.one {
+		width: 96%;
+	}
+	#review .wrapper div.variable-width div.item ul li.below p {
+		width: 100%;
+		font-size: 14px;
+	}
+	#review .wrapper div.variable-width div.item ul li div.right h5 {
+		font-size: 20px;
+	}
+	#review .wrapper div.variable-width div.item ul li div.right span {
+		font-size: 14px;
+	}
+	#contact {
+		padding: 9% 0;
+	}
+	#contact .wrapper div.container2 div.left form div.text a.submit {
+		padding: 2% 40%;
+	}
+	footer div.content {
+		display: block;
+	}
+	footer div.content div.contact {
+		width: 56%;
+	}
+	footer div.content div.email a.button {
+		padding: 3% 27%;
+	}
+}
+@media all and (max-width: 540px) {
+	#spotlight .content h1 {
+		font-size: 26px;
+	}
+	#main {
+		padding: 25% 4%;
+	}
+	#main section.wrapper .content div.one {
+		padding: 0 0 34% 0;
+	}
+	#practice .wrapper div.practical_left h2 {
+		font-size: 20px;
+	}
+	#practice .wrapper div.practical_left ul {
+		width: 99%;
+	}
+	#practice .wrapper div.practical_left ul li div.right p {
+		width: 80%;
+	}
+	#popular .wrapper div.multiple-items div.one ul li.bottom div.btn1 {
+		margin-left: 47%;
+	}
+	#review .wrapper div.variable-width { 
+		padding-top: 5%;
+	}
+	#contact .wrapper div.container2 div.left form div.text a.submit {
+		padding: 2% 39%;
+	}
+}
+@media all and (max-width: 480px) {
+	#spotlight .content h1 {
+		font-size: 20px;
+	}
+	#practice .wrapper div.practical_left h2 {
+		font-size: 22px;
+	}
+	#practice .wrapper div.practical_left ul {
+		width: 100%;
+	}
+	#practice .wrapper div.practical_left ul li div.right p {
+		width: 100%;
+	}
+	#practice .wrapper div.practical_left ul li {
+		margin-bottom: 14%;
+	}
+	#practice .wrapper div.practical_right div.container {
+		width: 370px;
+		height: 370px;
+		border-radius: 0;
+	}
+	#popular .wrapper h2 {
+		font-size: 23px;
+	}
+	#popular .wrapper span {
+		font-size: 15px;
+	}
+	#popular .wrapper div.multiple-items div.one ul li.bottom .image_container {
+		width: 11%;
+	}
+	#popular .wrapper div.multiple-items div.one ul li.bottom div.btn {
+		margin-left: 50%;
+	}
+	#popular .wrapper div.multiple-items div.one ul li.bottom div.btn1 {
+		margin-left: 37%;
+	}
+	#review {
+		padding: 30% 0;
+	}
+	#review .wrapper h4 {
+		font-size: 24px;
+	}
+	#review .wrapper span {
+		font-size: 15px;
+		margin-bottom: 22%;
+	}
+	#review .wrapper div.variable-width div.item ul li div.left {
+		width: 15%;
+	}
+	#review .wrapper div.variable-width div.item ul li div.right {
+		margin-top: 7%;
+	}
+	#contact .wrapper div.container2 div.left form div.text a.submit {
+		padding: 2% 36%;
+	}
+}
+@media all and (max-width: 360px) {
+	#practice .wrapper div.practical_left h2 {
+		font-size: 27px;
+	}
+	#practice .wrapper div.practical_right div.container {
+		width: 294px;
+		height: 340px;
+	}
+	#popular .wrapper div.multiple-items div.one ul li.bottom div.btn {
+		margin-left: 41%;
+	}
+	#popular .wrapper div.multiple-items div.one ul li.bottom div.btn1 {
+		margin-left: 23%;
+	}
+	#contact .wrapper div.container2 div.left form div.text a.submit {
+		padding: 2% 33%;
+	}
+}
+@media all and (max-width: 320px) {
+	
 }
